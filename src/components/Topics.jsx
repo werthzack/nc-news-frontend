@@ -2,7 +2,7 @@ export default function Topics({ topics }) {
   return (
     <div className="category">
       {topics.map((topic) => {
-        return <button>{topic}</button>;
+        return <button key={topic}>{topic}</button>;
       })}
     </div>
   );

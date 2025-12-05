@@ -11,12 +11,12 @@ export default function Home() {
 
   useEffect(() => {
     fetchArticles().then((data) => {
-      const topics =
+      const articles =
         currentTopic === 0
           ? data
           : data.filter((article) => article.topic === topics[currentTopic]);
-    }),
-      currentTopic;
+      updateArticles(articles);
+    });
 
     fetchTopics().then((data) => {
       const topics = data.map((topic) => topic.slug);
