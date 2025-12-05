@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { formatRelativeTime } from "../../utils/time";
+
 function Icon() {
   return (
     <svg
@@ -7,7 +10,7 @@ function Icon() {
       viewBox="0 0 20 20"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
+      strokeWidth="2"
       stroke-linecap="round"
       stroke-linejoin="round"
       aria-hidden="true"
@@ -18,22 +21,33 @@ function Icon() {
   );
 }
 
-function Card() {
+function Card({ article }) {
   return (
-    <div class="card">
+    <div key={article.article_id} className="card">
       <img
-        src="https://images.pexels.com/photos/209841/pexels-photo-209841.jpeg?w=700&h=700"
+        src={article.article_img_url}
         alt="Organize Basic Set (Walnut)"
-        class="product-image"
       ></img>
-      <div class="article-info">
+      <div className="article-info">
         <div>
-          <span>Sports</span>
-          <p>Who Will Manage Your Club in 2021?</p>
+          <span>
+            {article.topic.charAt(0).toUpperCase() + article.topic.slice(1)}
+          </span>
+          <Link to={`articles/${article.article_id}`}>{article.title}?</Link>
         </div>
-        <div className="author">
+        <div className="details">
           <Icon />
-          <span class="text-gray-600 text-sm">Sarah Johnson</span>
+          <Link
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+            to={`/authors/${article.author}`}
+          >
+            {article.author}
+          </Link>
+          <p>Votes: {article.votes}</p>
+          <p>Comments: {article.comment_count}</p>
+          <p>Date: {formatRelativeTime(article.created_at)}</p>
         </div>
       </div>
     </div>

@@ -1,0 +1,40 @@
+.article {
+  padding-left: 30%;
+  padding-right: 30%;
+  align-items: center;
+  display: block;
+}
+
+.article button:hover {
+  background-color: black;
+  color: white;
+}
+
+.topic {
+  padding: 1%;
+  background-color: #f3f4f6;
+  color: gray;
+  display: inline-block;
+  border-radius: 12.5%;
+  margin-bottom: -1%;
+}
+
+.title {
+  color: black;
+  font-weight: 450;
+  font-size: larger;
+}
+
+.info {
+  display: flex;
+  justify-content: start;
+  padding-bottom: 3%;
+}
+
+.info p {
+  padding-right: 3%;
+}
+
+.article img {
+  border-radius: 2%;
+}
