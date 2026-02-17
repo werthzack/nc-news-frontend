@@ -3,7 +3,7 @@
   height: 100vh;
   margin: 0 auto;
   padding: 2rem;
-  background-color: #f9fafb;
+  background-color: var(--color-bg);
   justify-content: flex-start;
 }
 
@@ -14,10 +14,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em var(--color-accent-1));
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em var(--color-accent-2));
 }
 
 @keyframes logo-spin {
@@ -41,7 +41,7 @@ header {
   padding: 30px;
   display: flex;
   justify-content: space-between;
-  background-color: white;
+  background-color: var(--color-surface);
   align-items: center;
 }
 
@@ -67,14 +67,14 @@ main {
 
 .category button {
   background-color: transparent;
-  color: gray;
+  color: var(--color-text-secondary);
   border: 0px;
   border-radius: 0px;
 }
 
 .category button:hover {
   border-bottom: 2px solid;
-  color: black;
+  color: var(--color-text-primary);
 }
 
 .article-grid {
@@ -87,15 +87,15 @@ main {
 
 .card {
   margin: 0.75rem;
-  background-color: white;
+  background-color: var(--color-surface);
   border-radius: 10px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: var(--shadow-md);
   transition: box-shadow 0.1s;
 }
 
 .card:hover {
   scale: 1.01;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: var(--shadow-lg);
 }
 
 .card img {

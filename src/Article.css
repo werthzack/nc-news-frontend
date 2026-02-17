@@ -6,21 +6,21 @@
 }
 
 .article button:hover {
-  background-color: black;
-  color: white;
+  background-color: var(--color-text-primary);
+  color: var(--color-surface);
 }
 
 .topic {
   padding: 1%;
-  background-color: #f3f4f6;
-  color: gray;
+  background-color: var(--color-surface-secondary);
+  color: var(--color-text-secondary);
   display: inline-block;
   border-radius: 12.5%;
   margin-bottom: -1%;
 }
 
 .title {
-  color: black;
+  color: var(--color-text-primary);
   font-weight: 450;
   font-size: larger;
 }

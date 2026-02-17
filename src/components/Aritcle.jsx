@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { fetchArticleById } from "../../utils/api";
-import "../Article.css";
 import { formatDate } from "../../utils/time";
 
 export default function Article() {
