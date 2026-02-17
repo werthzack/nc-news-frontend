@@ -3,9 +3,11 @@ import axios from "axios";
 const url_string = "https://nc-news-backend-b1yp.onrender.com/api";
 
 export function fetchArticles() {
-  return axios.get(`${url_string}/articles`).then((response) => {
-    return response.data?.articles;
-  });
+  return axios
+    .get(`${url_string}/articles`, { timeout: 5000 })
+    .then((response) => {
+      return response.data?.articles;
+    });
 }
 
 export function fetchArticleById(article_id) {
