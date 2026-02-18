@@ -4,16 +4,19 @@ import { capitalize } from "../../utils/text";
 import ArticleCardSkeleton from "./ArticleCardSkeleton";
 import ArticleCard from "./ArticleCard";
 import Sort from "./Sort";
+import Pagination from "./Pagination";
 
 export default function Home() {
-  const [currentArticles, updateArticles] = useState([]);
-  const [page, setCurrentPage] = useState(0);
+  const [articles, updateArticles] = useState([]);
+  const [currentArticles, updateCurrentArticles] = useState(articles);
+  const [currentPage, setCurrentPage] = useState(0);
   const [topics, updateTopics] = useState(["All"]);
   const [isLoading, setIsLoading] = useState(true);
   const [sortBy, setSortBy] = useState("date");
   const [currentTopic, updateSelectedTopic] = useState("All");
   const [sortOrder, setSortOrder] = useState("desc");
   const [hasError, setHasError] = useState(false);
+  const [totalPages, setTotalPages] = useState(0);
 
   const ITEMS_PER_PAGE = 6;
 
@@ -24,6 +27,8 @@ export default function Home() {
     try {
       const data = await fetchArticles();
       updateArticles(data);
+      setTotalPages(Math.ceil(data.length / ITEMS_PER_PAGE));
+      setCurrentPage(1);
     } catch (error) {
       console.error("Failed to fetch articles:", error);
       setHasError(true);
@@ -56,6 +61,16 @@ export default function Home() {
     setSortBy(value);
     setCurrentPage(1);
   };
+
+  const getCurrentArticles = (currentPage) => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    return articles.slice(startIndex, endIndex);
+  };
+
+  useEffect(() => {
+    updateCurrentArticles(getCurrentArticles(currentPage));
+  }, [articles, currentPage]);
 
   return (
     <main className="max-width-container main-content">
@@ -162,6 +177,13 @@ export default function Home() {
           ))
         )}
       </div>
+
+      {/* Pagination */}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={(page) => setCurrentPage(page)}
+      />
     </main>
   );
 }
