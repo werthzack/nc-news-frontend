@@ -6,16 +6,20 @@
   justify-content: center;
   padding: 4rem 2rem;
   text-align: center;
-  background-color: #ffffff;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
 }
 
 .error-icon {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background: linear-gradient(to bottom right, #a855f7, #ec4899);
+  background: linear-gradient(
+    to bottom right,
+    var(--color-accent-1),
+    var(--color-accent-2)
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,18 +30,18 @@
 .error-icon svg {
   width: 2rem;
   height: 2rem;
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 .error-state h2 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #000000;
+  color: var(--color-black);
 }
 
 .error-state p {
-  color: #6b7280;
+  color: var(--color-gray-500);
   margin-bottom: 2rem;
   max-width: 28rem;
   font-size: 1rem;
@@ -48,18 +52,18 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--color-black);
+  color: var(--color-white);
   border: none;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: var(--transition-fast);
 }
 
 .retry-button:hover {
-  background-color: #1f2937;
+  background-color: var(--color-gray-800);
 }
 
 .retry-button svg {

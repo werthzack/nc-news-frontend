@@ -5,6 +5,7 @@ import ArticleCardSkeleton from "./ArticleCardSkeleton";
 import ArticleCard from "./ArticleCard";
 import Sort from "./Sort";
 import Pagination from "./Pagination";
+import { formatRelativeTime } from "../../utils/time";
 
 export default function Home() {
   const [articles, updateArticles] = useState([]);
@@ -172,7 +173,7 @@ export default function Home() {
               author={article.author}
               votes={article.votes}
               comment_count={article.comment_count}
-              date={article.date}
+              date={formatRelativeTime(article.created_at)}
             />
           ))
         )}

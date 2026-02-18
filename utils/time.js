@@ -1,7 +1,5 @@
 export function formatRelativeTime(isoDateString) {
   const date = new Date(isoDateString);
-  const now = new Date("2020-11-22T11:13:00.000Z");
-  const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
 
   const thresholds = [
     { max: 1, text: "today" },
@@ -13,10 +11,10 @@ export function formatRelativeTime(isoDateString) {
     { max: 60, text: "a month ago" },
   ];
 
-  const rule = thresholds.find((t) => diffDays < t.max);
+  const rule = thresholds.find((t) => date < t.max);
 
   if (rule) {
-    return typeof rule.text === "function" ? rule.text(diffDays) : rule.text;
+    return typeof rule.text === "function" ? rule.text(date) : rule.text;
   }
 
   return date.toLocaleDateString(undefined, { month: "long", year: "numeric" });

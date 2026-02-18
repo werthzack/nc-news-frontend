@@ -4,21 +4,21 @@
 }
 
 .skeleton-card:hover {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-xs);
 }
 
 /* Skeleton Loading Styles */
 .skeleton {
   background: linear-gradient(
     90deg,
-    #f0f0f0 0%,
-    #e0e0e0 20%,
-    #f0f0f0 40%,
-    #f0f0f0 100%
+    var(--color-gray-100) 0%,
+    var(--color-gray-200) 20%,
+    var(--color-gray-300) 40%,
+    var(--color-gray-400) 100%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
-  border-radius: 0.25rem;
+  border-radius: var(--radius-sm);
 }
 
 @keyframes shimmer {
@@ -39,7 +39,7 @@
 .skeleton-badge {
   width: 5rem;
   height: 1.5rem;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
 }
 
 .skeleton-title {
@@ -56,7 +56,7 @@
 .skeleton-tag {
   width: 4rem;
   height: 1.5rem;
-  border-radius: 0.25rem;
+  border-radius: var(--radius-sm);
 }
 
 .skeleton-meta {
