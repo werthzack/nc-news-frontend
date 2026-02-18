@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url_string = "https://nc-news-backend-b1yp.onrender.com/api";
+const url_string = import.meta.env.VITE_API_URL || "http://localhost:9090/api";
 
 export function fetchArticles() {
   return axios
